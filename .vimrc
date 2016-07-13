@@ -211,12 +211,15 @@ let g:tmuxline_preset = {
 let g:tmuxline_separators = {
     \ 'left' : '',
     \ 'left_alt': '>',
-    \ 'right' : '',
+    \ 'right' : '',
     \ 'right_alt' : '<',
     \ 'space' : ' '}
 
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_powerline_fonts=1
+let g:airline_theme='simple'
+
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 
 " Use todo#complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#complete
