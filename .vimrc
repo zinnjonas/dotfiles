@@ -173,7 +173,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=NONE
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=None
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 
 " Opens a new tab with the current buffer's path
@@ -187,6 +187,36 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Settings for the airline plugin XD
+"
+" Use airline auch in the tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Do not change the layout of tmux all time
+let g:airline#extensions#tmuxline#enabled = 0
+
+" Configure Tmux statusline like the one from vim (airline)
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '%a',
+      \'y'    : '#W %R',
+      \'z'    : '#H'}
+
+" Tmux statusline seperators
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '}
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " Use todo#complete as the omni complete function for todo files
 au filetype todo setlocal omnifunc=todo#complete
@@ -310,18 +340,32 @@ call plug#begin('~/.vim/plugged')
  Plug 'scrooloose/syntastic'
 
  " Cmake plugin to generate folder
- Plug 'jalcine/cmake.vim'
+ "Plug 'jalcine/cmake.vim'
+ Plug 'vhdirk/vim-cmake'
 
  " Vim Notes Plugin
  Plug 'xolox/vim-notes'
  " Dependencies
  Plug 'xolox/vim-misc'
 
- " TODO list Plugin
- Plug 'vim-scripts/todo-txt.vim'
-
  " Indentation guides
  Plug 'nathanaelkane/vim-indent-guides'
 
+ " TODO list Plugin
+ Plug 'vim-scripts/todo-txt.vim'
+
+ " Airline plugin
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+
+ " You complete me
+ Plug 'Valloric/YouCompleteMe'
+
+ " Tmux line same theme
+ Plug 'edkolev/tmuxline.vim'
+
+ " Prompt line
+ Plug 'edkolev/promptline.vim'
+ 
 call plug#end()
 
