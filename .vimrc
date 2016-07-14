@@ -235,7 +235,16 @@
 
   " Format the status line
   set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-   
+
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " Promptline configuration
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  let g:promptline_preset = {
+        \'y' : [ promptline#slices#host() ],
+        \'a' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'b' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]} 
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " => Helper functions
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
